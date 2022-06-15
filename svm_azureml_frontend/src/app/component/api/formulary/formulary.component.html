@@ -1,0 +1,121 @@
+<nav class="navbar navbar-dark bg-primary">
+	<div id="title" class="container-fluid">
+		<a class="navbar-brand" href="https://github.com/Jesusf2003">
+			<strong>SVM con Azure ML</strong>
+		</a>
+	</div>
+</nav>
+
+<div class="formulario">
+	<div class="title-form">
+		<h2>Ingrese los siguientes datos</h2>
+	</div>
+	<div class="container custom-container">
+		<div class="col-md-12">
+			<h3 class="mb-3 text-center">
+				Enviar consulta
+			</h3>
+		</div>
+		<div class="col-md-12">
+			<form>
+				<div class="row row-cols-4">
+					<div class="col">
+						<label for="ids">
+							<b>ID</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="clump">
+							<b>Clump</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="unifsize">
+							<b>UnifSize</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="unifshape">
+							<b>UnifShape</b>
+						</label>
+					</div>
+					<div class="col">
+						<input id="ids" type="number" [(ngModel)]="dto.ids" required min="1">
+					</div>
+					<div class="col">
+						<input id="clump" type="number" [(ngModel)]="dto.clump" required min="1">
+					</div>
+					<div class="col">
+						<input id="unifsize" type="number" [(ngModel)]="dto.unifsize" required min="1">
+					</div>
+					<div class="col">
+						<input id="unifshape" type="number" [(ngModel)]="dto.unifshape" required min="1">
+					</div>
+				</div>
+				<div class="row row-cols-4">
+					<div class="col">
+						<label for="margadh">
+							<b>MargAdh</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="singepisize">
+							<b>SingEpiSize</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="barenuc">
+							<b>BareNuc</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="blandchrom">
+							<b>BlandChrom</b>
+						</label>
+					</div>
+					<div class="col">
+						<input id="margadh" type="number" [(ngModel)]="dto.margadh" required min="1">
+					</div>
+					<div class="col">
+						<input id="singepisize" type="number" [(ngModel)]="dto.singepisize" required min="1">
+					</div>
+					<div class="col">
+						<input id="barenuc" type="number" [(ngModel)]="dto.barenuc" required min="1">
+					</div>
+					<div class="col">
+						<input id="blandchrom" type="number" [(ngModel)]="dto.blandchrom" required min="1">
+					</div>
+				</div>
+				<div class="row row-cols-3">
+					<div class="col">
+						<label for="normnucl">
+							<b>NormNucl</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="mit">
+							<b>Mit</b>
+						</label>
+					</div>
+					<div class="col">
+						<label for="clas">
+							<b>Class</b>
+						</label>
+					</div>
+					<div class="col">
+						<input id="normnucl" type="number" [(ngModel)]="dto.normnucl" required min="1">
+					</div>
+					<div class="col">
+						<input id="mit" type="number" [(ngModel)]="dto.mit" required min="1">
+					</div>
+					<div class="col">
+						<input id="class" type="number" [(ngModel)]="dto.clas" required min="1">
+					</div>
+					<div class="col-auto">
+						<button class="btn btn-primary mb-3" (click)="sendRequest()">Enviar consulta</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

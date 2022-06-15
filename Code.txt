@@ -1,0 +1,55 @@
+requestForm!: FormGroup;
+
+	constructor(
+		public fb: FormBuilder,
+		public requestServ: ApirestService,
+		public consult: ConsultaClass
+	) { }
+
+	ngOnInit(): void {
+		this.requestForm = this.fb.group(
+			{
+				id: ['', Validators.required],
+				clump: ['', Validators.required],
+				unifsize: ['', Validators.required],
+				unifshape: ['', Validators.required],
+				margadh: ['', Validators.required],
+				singepisize: ['', Validators.required],
+				barenuc: ['', Validators.required],
+				blandchrom: ['', Validators.required],
+				normnucl: ['', Validators.required],
+				mit: ['', Validators.required],
+				clas: ['', Validators.required]
+			}
+		);
+	}
+	
+	sendRequest(): void {
+		const consult = new ConsultaClass();
+		consult.ids = this.form['ids'].value;
+		consult.clump = this.form['clump'].value;
+		consult.unifsize = this.form['unifsize'].value;
+		consult.unifshape = this.form['unifshape'].value;
+		consult.margadh = this.form['margadh'].value;
+		consult.singepisize = this.form['singepisize'].value;
+		consult.barenuc = this.form['barenuc'].value;
+		consult.blandchrom = this.form['blandchrom'].value;
+		consult.normnucl = this.form['normnucl'].value;
+		consult.mit = this.form['mit'].value;
+		consult.clas = this.form['clas'].value;
+		
+		console.log(consult);
+		
+		this.requestServ.sendRequest(consult).subscribe(
+			resp => {
+				this.requestForm.reset();
+				this.consult.push(resp);
+			}, error => {
+				console.log(error);
+			}
+		);
+	}
+	
+	get form() {
+		return this.requestForm.controls;
+	}
